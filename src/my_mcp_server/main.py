@@ -1,8 +1,14 @@
 from fastmcp import FastMCP
 import json
 import random
+from fastmcp.server.auth.providers.jwt import StaticTokenVerifier
+from dotenv import load_dotenv
+import os
 
-mcp = FastMCP("My MCP Remote Server")
+load_dotenv()
+auth_token = os.getenv("MCP_AUTH_TOKEN")
+auth = StaticTokenVerifier(tokens={auth_token: {"sub": "admin"}})
+mcp = FastMCP("My MCP Remote Server", auth=auth)
 
 
 @mcp.tool()
