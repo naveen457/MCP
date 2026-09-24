@@ -18,9 +18,25 @@ def add_numbers(a: float, b: float) -> float:
 
 
 @mcp.tool()
+def subtract_numbers(a: float, b: float) -> float:
+    """Function used for addition."""
+    return a - b
+
+
+@mcp.tool()
 def random_value(min_value: int, max_value: int) -> float:
     """Generate a random integer between the supplied bounds."""
     return random.randint(min_value, max_value)
+
+
+@mcp.prompt()
+def verify_math_operation(operation: str, expression: str, result: str) -> str:
+    """
+    math operation verification"""
+    return f""" operation done:{operation}
+                expression :{expression}
+                result:{result}
+                verify wheather the result is correct or not!"""
 
 
 @mcp.resource("info:/server")
