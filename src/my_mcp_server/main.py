@@ -1,3 +1,4 @@
+import resampy
 from fastmcp import FastMCP
 import json
 import random
@@ -22,6 +23,13 @@ def subtract_numbers(a: float, b: float) -> float:
     """Function used for addition."""
     return a - b
 
+@mcp.tool()
+def multiply_numbers(a:float,b:float,*args) -> float:
+    """Funtion for multiplying multiple numbers."""
+    result=a*b
+    for i in args:
+        result*=i
+    return result   
 
 @mcp.tool()
 def random_value(min_value: int, max_value: int) -> float:
