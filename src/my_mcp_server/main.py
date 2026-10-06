@@ -32,6 +32,14 @@ def multiply_numbers(a:float,b:float,*args) -> float:
     return result   
 
 @mcp.tool()
+def division_numbers(a:float,b:float) -> float:
+    """Division of 2 numbers b values must not be 0"""
+    if(b==0):
+        raise ValueError("Denominator cannot be zero")
+    else:
+        return a/b 
+
+@mcp.tool()
 def random_value(min_value: int, max_value: int) -> float:
     """Generate a random integer between the supplied bounds."""
     return random.randint(min_value, max_value)
